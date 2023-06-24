@@ -1,0 +1,25 @@
+# /usr/local/bin/docker-compose -f /docs/dev-ops/environment/environment-docker-compose.yml up -d
+version: '3'
+services:
+  # MySQL 5.7
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: road-map
+      MYSQL_USER: xfg
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+
+  # Zookeeper
+  zookeeper:
+    image: 'zookeeper:3.7.1'
+    container_name: zookeeper
+    restart: always
+    ports:
+      - '2181:2181'

@@ -1,0 +1,1 @@
+docker stop xfg-frame-app
