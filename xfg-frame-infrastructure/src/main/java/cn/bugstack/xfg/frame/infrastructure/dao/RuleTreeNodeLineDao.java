@@ -1,6 +1,6 @@
 package cn.bugstack.xfg.frame.infrastructure.dao;
 
-import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodeLineVO;
+import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodeLinePO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public interface RuleTreeNodeLineDao {
      * @param req   入参
      * @return      规则树节点连线集合
      */
-    List<RuleTreeNodeLineVO> queryRuleTreeNodeLineList(RuleTreeNodeLineVO req);
+    List<RuleTreeNodeLinePO> queryRuleTreeNodeLineList(RuleTreeNodeLinePO req);
 
     /**
      * 查询规则树连线数量

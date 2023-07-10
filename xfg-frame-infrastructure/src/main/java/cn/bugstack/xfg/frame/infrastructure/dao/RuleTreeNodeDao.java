@@ -1,5 +1,5 @@
 package cn.bugstack.xfg.frame.infrastructure.dao;
-import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodeVO;
+import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodePO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public interface RuleTreeNodeDao {
      * @param treeId    规则树ID
      * @return          规则树节点集合
      */
-    List<RuleTreeNodeVO> queryRuleTreeNodeList(Long treeId);
+    List<RuleTreeNodePO> queryRuleTreeNodeList(Long treeId);
 
     /**
      * 查询规则树节点数量
@@ -34,6 +34,6 @@ public interface RuleTreeNodeDao {
      * @param treeId    规则树ID
      * @return          节点集合
      */
-    List<RuleTreeNodeVO> queryTreeRulePoint(Long treeId);
+    List<RuleTreeNodePO> queryTreeRulePoint(Long treeId);
 
 }

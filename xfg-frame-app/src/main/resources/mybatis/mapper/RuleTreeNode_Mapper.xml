@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.bugstack.xfg.frame.infrastructure.dao.RuleTreeNodeDao">
 
-    <resultMap id="ruleTreeNodeMap" type="cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodeVO">
+    <resultMap id="ruleTreeNodeMap" type="cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodePO">
         <id column="id" property="id"/>
         <result column="tree_id" property="treeId"/>
         <result column="node_type" property="nodeType"/>

@@ -1,5 +1,5 @@
 package cn.bugstack.xfg.frame.infrastructure.dao;
-import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeVO;
+import cn.bugstack.xfg.frame.infrastructure.po.RuleTreePO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -17,13 +17,13 @@ public interface RuleTreeDao {
      * @param id ID
      * @return   规则树
      */
-    RuleTreeVO queryRuleTreeByTreeId(Long id);
+    RuleTreePO queryRuleTreeByTreeId(Long id);
 
     /**
      * 规则树简要信息查询
      * @param treeId 规则树ID
      * @return       规则树
      */
-    RuleTreeVO queryTreeSummaryInfo(Long treeId);
+    RuleTreePO queryTreeSummaryInfo(Long treeId);
 
 }

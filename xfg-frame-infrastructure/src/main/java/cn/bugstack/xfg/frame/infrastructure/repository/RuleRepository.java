@@ -8,9 +8,9 @@ import cn.bugstack.xfg.frame.domain.rule.repository.IRuleRepository;
 import cn.bugstack.xfg.frame.infrastructure.dao.RuleTreeDao;
 import cn.bugstack.xfg.frame.infrastructure.dao.RuleTreeNodeDao;
 import cn.bugstack.xfg.frame.infrastructure.dao.RuleTreeNodeLineDao;
-import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodeLineVO;
-import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodeVO;
-import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeVO;
+import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodeLinePO;
+import cn.bugstack.xfg.frame.infrastructure.po.RuleTreeNodePO;
+import cn.bugstack.xfg.frame.infrastructure.po.RuleTreePO;
 import cn.bugstack.xfg.frame.types.Constants;
 import org.springframework.stereotype.Repository;
 
@@ -41,7 +41,7 @@ public class RuleRepository implements IRuleRepository {
     public TreeRuleAggregate queryTreeRuleRich(Long treeId) {
 
         // 规则树
-        RuleTreeVO ruleTree = ruleTreeDao.queryRuleTreeByTreeId(treeId);
+        RuleTreePO ruleTree = ruleTreeDao.queryRuleTreeByTreeId(treeId);
         TreeRootVO treeRoot = new TreeRootVO();
         treeRoot.setTreeId(ruleTree.getId());
         treeRoot.setTreeRootNodeId(ruleTree.getTreeRootNodeId());
@@ -49,17 +49,17 @@ public class RuleRepository implements IRuleRepository {
 
         // 树节点->树连接线
         Map<Long, TreeNodeVO> treeNodeMap = new HashMap<>();
-        List<RuleTreeNodeVO> ruleTreeNodeList = ruleTreeNodeDao.queryRuleTreeNodeList(treeId);
-        for (RuleTreeNodeVO treeNode : ruleTreeNodeList) {
+        List<RuleTreeNodePO> ruleTreeNodeList = ruleTreeNodeDao.queryRuleTreeNodeList(treeId);
+        for (RuleTreeNodePO treeNode : ruleTreeNodeList) {
             List<TreeNodeLineVO> treeNodeLineInfoList = new ArrayList<>();
             if (Constants.NodeType.STEM.equals(treeNode.getNodeType())) {
 
-                RuleTreeNodeLineVO ruleTreeNodeLineReq = new RuleTreeNodeLineVO();
+                RuleTreeNodeLinePO ruleTreeNodeLineReq = new RuleTreeNodeLinePO();
                 ruleTreeNodeLineReq.setTreeId(treeId);
                 ruleTreeNodeLineReq.setNodeIdFrom(treeNode.getId());
-                List<RuleTreeNodeLineVO> ruleTreeNodeLineList = ruleTreeNodeLineDao.queryRuleTreeNodeLineList(ruleTreeNodeLineReq);
+                List<RuleTreeNodeLinePO> ruleTreeNodeLineList = ruleTreeNodeLineDao.queryRuleTreeNodeLineList(ruleTreeNodeLineReq);
 
-                for (RuleTreeNodeLineVO nodeLine : ruleTreeNodeLineList) {
+                for (RuleTreeNodeLinePO nodeLine : ruleTreeNodeLineList) {
                     TreeNodeLineVO treeNodeLineInfo = new TreeNodeLineVO();
                     treeNodeLineInfo.setNodeIdFrom(nodeLine.getNodeIdFrom());
                     treeNodeLineInfo.setNodeIdTo(nodeLine.getNodeIdTo());
