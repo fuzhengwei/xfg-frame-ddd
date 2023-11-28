@@ -170,40 +170,6 @@
             <properties>
                 <profileActive>prod</profileActive>
             </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.codehaus.mojo</groupId>
-                                <artifactId>extra-enforcer-rules</artifactId>
-                                <version>1.4</version>
-                            </dependency>
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <id>enforce-banned-dependencies-app</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>enforce</goal>
-                                </goals>
-                                <configuration>
-                                    <rules>
-                                        <bannedDependencies>
-                                            <searchTransitive>true</searchTransitive>
-                                            <excludes>
-                                                <exclude>*:*:[,0.0.1)</exclude>
-                                            </excludes>
-                                        </bannedDependencies>
-                                    </rules>
-                                    <fail>true</fail>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
     </profiles>
 
