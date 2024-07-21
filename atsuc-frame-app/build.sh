@@ -1,0 +1,1 @@
+docker build -f ./Dockerfile -t demowhite/atsuc-frame-app:1.3 .

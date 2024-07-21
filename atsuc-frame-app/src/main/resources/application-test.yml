@@ -1,0 +1,19 @@
+server:
+  port: 8092
+
+dubbo:
+  application:
+    name: atsuc-frame
+    version: 1.0.0
+  registry:
+    address: zookeeper://192.168.1.100:9181
+  protocol:
+    name: dubbo
+    port: 20881
+  scan:
+    base-packages: cn.atsuc.frame.api
+
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml

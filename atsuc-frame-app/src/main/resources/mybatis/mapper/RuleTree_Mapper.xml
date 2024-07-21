@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.atsuc.frame.infrastructure.dao.RuleTreeDao">
+
+    <resultMap id="ruleTreeMap" type="cn.atsuc.frame.infrastructure.po.RuleTreePO">
+        <id column="id" property="id"/>
+        <result column="tree_name" property="treeName"/>
+        <result column="tree_desc" property="treeDesc"/>
+        <result column="tree_root_node_id" property="treeRootNodeId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="queryRuleTreeByTreeId" resultMap="ruleTreeMap">
+        SELECT id, tree_name, tree_desc, tree_root_node_id, create_time, update_time
+        FROM rule_tree
+        where id = #{id}
+    </select>
+
+    <select id="queryTreeSummaryInfo" resultMap="ruleTreeMap">
+        SELECT id, tree_name, tree_desc
+        FROM rule_tree
+        where id = #{id}
+    </select>
+
+</mapper>

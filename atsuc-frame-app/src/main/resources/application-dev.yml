@@ -1,0 +1,48 @@
+server:
+  port: 8091
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/road-map?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  config-location:  classpath:/mybatis/config/mybatis-config.xml
+
+# 线程池配置
+thread:
+  pool:
+    executor:
+      config:
+        core-pool-size: 20
+        max-pool-size: 200
+        keep-alive-time: 10
+        block-queue-size: 5000
+        policy: CallerRunsPolicy
+
+# 限流配置
+rate-limiter:
+  permits-per-second: 1
+  timeout: 5
+
+# Dubbo
+dubbo:
+  application:
+    name: atsuc-frame-dev
+    version: 1.0.0
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 20883
+  scan:
+    base-packages: cn.atsuc.frame.api
+
+# 日志
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml

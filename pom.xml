@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.bugstack</groupId>
-    <artifactId>xfg-frame-ddd</artifactId>
+    <groupId>cn.atsuc</groupId>
+    <artifactId>atsuc-frame-ddd</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>xfg-frame-api</module>
-        <module>xfg-frame-app</module>
-        <module>xfg-frame-domain</module>
-        <module>xfg-frame-trigger</module>
-        <module>xfg-frame-infrastructure</module>
-        <module>xfg-frame-types</module>
+        <module>atsuc-frame-api</module>
+        <module>atsuc-frame-app</module>
+        <module>atsuc-frame-domain</module>
+        <module>atsuc-frame-trigger</module>
+        <module>atsuc-frame-infrastructure</module>
+        <module>atsuc-frame-types</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -47,7 +47,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.34</version>
+                <version>8.0.29</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -120,7 +120,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>xfg-frame</finalName>
+        <finalName>atsuc-frame</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
